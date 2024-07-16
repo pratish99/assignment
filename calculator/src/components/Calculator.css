@@ -1,0 +1,44 @@
+.calculator {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(190, 190, 190);
+    padding: 20px; /* Added padding for spacing */
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding: 11px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns layout */
+    gap: 10px; /* Gap between buttons */
+}
+
+.container input {
+    grid-column: span 4; /* Span input across all columns */
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-size: 24px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding doesn't exceed width */
+}
+
+.container button {
+    width: 100%; /* Take full width of grid cell */
+    padding: 15px; /* Increase padding for larger touch area */
+    font-size: 22px; /* Increase font size */
+    background-color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container .equal {
+    background-color: rgb(0, 162, 255);
+    color: white;
+}

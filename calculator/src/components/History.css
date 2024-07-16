@@ -1,0 +1,32 @@
+.history-panel {
+    width: 300px;
+    background-color: rgb(190, 190, 190);
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-panel h2 {
+    margin: 0;
+    padding: 20px;
+}
+
+.history-list {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.history-item {
+    margin-bottom: 10px;
+}
+
+.clear-history {
+    padding: 20px;
+    background-color: rgb(164, 163, 163);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
