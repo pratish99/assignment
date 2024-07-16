@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Calculator.css'
 
-const Calculator = () => {
+const Calculator = ({ addToHistory }) => {
     const [data, setData] = useState("");
 
     const getValue =(event) =>{
@@ -12,7 +12,7 @@ const Calculator = () => {
         try {
             const result = evaluateExpression(data)
             setData(result);
-            addToHistory(data + " = " + result);
+            addToHistory(`${data} = ${result}`);
         } catch {
             setData("Error");
         }
@@ -40,7 +40,7 @@ const Calculator = () => {
     };
 
     const back = () =>{
-        setData(data.slice(0,-1))
+        setData(data.slice(0, -1)); 
     }
     const clear = () =>{
         setData("")
@@ -48,7 +48,7 @@ const Calculator = () => {
     const clearEnd = () => {
         const lastOperatorIndex = findLastOperatorIndex(data);
         if (lastOperatorIndex !== -1) {
-            setData(data.slice(0, lastOperatorIndex + 1));
+            setData(data.slice(0, lastOperatorIndex + 1)); 
         }
     }
 
@@ -61,12 +61,6 @@ const Calculator = () => {
         }
         return -1;
     }
-
-    const addToHistory = (entry) => {
-        let history = JSON.parse(localStorage.getItem('history')) || [];
-        history.push(entry);
-        localStorage.setItem('history', JSON.stringify(history));
-    };
     return (
     <>
         <div className='calculator'>

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [history, setHistory] = useState([]);
+  const [showHistory, setShowHistory] = useState(true);
 
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history')) || [];
@@ -22,10 +23,18 @@ function App() {
         localStorage.removeItem('history');
     };
 
+    const toggleHistory = () => {
+      setShowHistory(!showHistory);
+    };
+
     return (
         <div className="app">
+            <div className="hamburger" onClick={toggleHistory}>
+                ☰ 
+            </div>
             <Calculator addToHistory={addToHistory} />
-            <History history={history} clearHistory={clearHistory} />
+            {showHistory && <History history={history} clearHistory={clearHistory} />}
+            {showHistory && <div className="overlay" onClick={toggleHistory}></div>}
         </div>
     );
 }
