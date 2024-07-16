@@ -6,6 +6,10 @@
     flex-direction: column;
 }
 
+.history-panel.show {
+    left: 0; 
+}
+
 .history-panel h2 {
     margin: 0;
     padding: 20px;
@@ -30,3 +34,14 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+@media (max-width: 576px) {
+    .history-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        transition: left 0.3s ease;
+    }
+}
+

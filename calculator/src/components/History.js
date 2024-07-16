@@ -1,8 +1,8 @@
 import './History.css'
 
-const History = ({ history, clearHistory }) => {
+const History = ({ history, clearHistory, showHistory }) => {
     return (
-        <div className="history-panel">
+        <div className={`history-panel ${showHistory ? 'show' : ''}`}>
             <h2>History</h2>
             <div className="history-list">
                 {history.map((entry, index) => (
