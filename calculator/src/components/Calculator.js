@@ -10,8 +10,14 @@ const Calculator = ({ addToHistory }) => {
     const calculation = () =>{
         try {
             const result = evaluateExpression(data);
-            setData(result.toString());
-            addToHistory(`${data} = ${result}`);
+            if(isNaN(result)){
+                alert('Please Enter Valid Number!')
+                setData("");
+            }
+            else{
+                setData(result.toString());
+                addToHistory(`${data} = ${result}`);
+            }
         } catch {
             setData("Error");
         }
